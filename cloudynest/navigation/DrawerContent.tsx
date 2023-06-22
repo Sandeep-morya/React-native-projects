@@ -23,6 +23,7 @@ import {
 import { StatusBar } from "expo-status-bar";
 import theme from "../theme";
 import Button from "../components/common/Button";
+import { Linking } from "react-native";
 
 export default function DrawerContent(props: DrawerContentComponentProps) {
 	return (
@@ -56,6 +57,7 @@ export default function DrawerContent(props: DrawerContentComponentProps) {
 					borderColor={"white"}
 					px={2.5}
 					py={1}
+					onPress={() => props.navigation.navigate("Login")}
 					borderRadius={"full"}>
 					<Text fontWeight={"bold"} fontSize={18} color="white">
 						Sign In
@@ -122,6 +124,7 @@ export default function DrawerContent(props: DrawerContentComponentProps) {
 					</VStack>
 					<HStack>
 						<IconButton
+							onPress={() => Linking.openURL("https://cloudynest.vercel.app/")}
 							variant="unstyled"
 							_icon={{
 								as: Foundation,
@@ -130,6 +133,9 @@ export default function DrawerContent(props: DrawerContentComponentProps) {
 							}}
 						/>
 						<IconButton
+							onPress={() =>
+								Linking.openURL("https://github.com/Sandeep-morya/")
+							}
 							variant="unstyled"
 							_icon={{
 								as: FontAwesome,
@@ -138,6 +144,11 @@ export default function DrawerContent(props: DrawerContentComponentProps) {
 							}}
 						/>
 						<IconButton
+							onPress={() =>
+								Linking.openURL(
+									"https://api.whatsapp.com/send?phone=919988885304",
+								)
+							}
 							variant="unstyled"
 							_icon={{
 								as: FontAwesome,

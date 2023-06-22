@@ -10,32 +10,24 @@ import LoginScreen from "./screens/LoginScreen";
 import HomeScreen from "./screens/HomeScreen";
 import DrawerContent from "./navigation/DrawerContent";
 import theme from "./theme";
+import CartScreen from "./screens/CartScreen";
 
 const Drawer = createDrawerNavigator();
+
 export default function App() {
 	return (
 		<NativeBaseProvider>
 			<NavigationContainer>
-				{/* <LoginScreen />
-				 */}
 				<Drawer.Navigator
+					initialRouteName="Home"
 					drawerContent={(props) => <DrawerContent {...props} />}
 					screenOptions={{
-						headerTitle: "CloudyNest",
-						headerTintColor: "teal",
-						headerTitleAlign: "center",
-						headerTitleStyle: {
-							fontWeight: "700",
-							fontSize: 30,
-						},
-						headerStyle: {
-							backgroundColor: "transparent",
-							shadowColor: "transparent",
-						},
+						headerShown: false,
 						drawerStyle: {
 							width: "100%",
 						},
 					}}>
+					<Drawer.Screen name="Home" component={HomeScreen} />
 					<Drawer.Screen
 						options={{
 							headerShown: false,
@@ -44,7 +36,7 @@ export default function App() {
 						name="Login"
 						component={LoginScreen}
 					/>
-					<Drawer.Screen name="Home" component={HomeScreen} />
+					<Drawer.Screen name="Cart" component={CartScreen} />
 				</Drawer.Navigator>
 				<StatusBar style="auto" backgroundColor={theme.colors.teal[500]} />
 			</NavigationContainer>
