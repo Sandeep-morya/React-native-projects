@@ -1,5 +1,16 @@
-﻿import { Image, Heading, VStack, Box, Stack, Flex } from "native-base";
+﻿import {
+	Image,
+	Heading,
+	VStack,
+	Box,
+	Stack,
+	Flex,
+	Pressable,
+} from "native-base";
 import React from "react";
+
+import { Screens } from "../data";
+import useNavigation from "../hooks/useNavigation";
 const images = [
 	{
 		image: require(`../assets/Categories/smartphones.png`),
@@ -44,6 +55,7 @@ const images = [
 ];
 
 export default function Categories() {
+	const navigation = useNavigation();
 	return (
 		<VStack mt={3} p={2} space={2}>
 			<Heading mx="auto" size={"xl"}>
@@ -69,15 +81,17 @@ export default function Categories() {
 						bg={color}
 						m={2}
 						key={title + color}>
-						<Image
-							style={{
-								height: "80%",
-								aspectRatio: 1,
-							}}
-							resizeMode="contain"
-							source={image}
-							alt="Categories"
-						/>
+						<Pressable onPress={() => navigation.navigate(Screens.AllProducts)}>
+							<Image
+								style={{
+									height: "80%",
+									aspectRatio: 1,
+								}}
+								resizeMode="contain"
+								source={image}
+								alt="Categories"
+							/>
+						</Pressable>
 						<Heading size={"sm"}>{title}</Heading>
 					</Flex>
 				))}

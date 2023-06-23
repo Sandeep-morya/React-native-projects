@@ -24,6 +24,7 @@ import { StatusBar } from "expo-status-bar";
 import theme from "../theme";
 import Button from "../components/common/Button";
 import { Linking } from "react-native";
+import { Screens } from "../data";
 
 export default function DrawerContent(props: DrawerContentComponentProps) {
 	return (
@@ -57,7 +58,7 @@ export default function DrawerContent(props: DrawerContentComponentProps) {
 					borderColor={"white"}
 					px={2.5}
 					py={1}
-					onPress={() => props.navigation.navigate("Login")}
+					onPress={() => props.navigation.navigate(Screens.Login)}
 					borderRadius={"full"}>
 					<Text fontWeight={"bold"} fontSize={18} color="white">
 						Sign In

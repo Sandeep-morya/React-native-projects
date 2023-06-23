@@ -1,4 +1,17 @@
-﻿export const trending_products = [
+﻿export enum Screens {
+	Home = "Home",
+	Login = "Login",
+	AllProducts = "AllProducts",
+	SingleProduct = "SingleProduct",
+	Cart = "Cart",
+	Payment = "Payment",
+}
+
+export type DrawerParamList = {
+	[key in Screens]: undefined;
+};
+
+export const trending_products = [
 	{
 		_id: "646620833be9d61453d5e5ac",
 		title: "Men Blue Relaxed Fit Hoodie",

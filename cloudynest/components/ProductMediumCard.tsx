@@ -11,6 +11,8 @@
 	Pressable,
 } from "native-base";
 import React, { useState } from "react";
+import useNavigation from "../hooks/useNavigation";
+import { Screens } from "../data";
 interface Props {
 	id: string | number;
 	title: string;
@@ -19,18 +21,21 @@ interface Props {
 }
 
 export default function ProductMediumCard(product: Props) {
+	const navigation = useNavigation();
 	const [thumbnail, setThumbnai] = useState(0);
 
 	return (
 		<VStack w="full" p={2} space={2}>
-			<Image
-				w={"full"}
-				h={300}
-				borderRadius={"lg"}
-				resizeMethod="resize"
-				source={{ uri: product.images[thumbnail] }}
-				alt={product.title}
-			/>
+			<Pressable onPress={() => navigation.navigate(Screens.SingleProduct)}>
+				<Image
+					w={"full"}
+					h={300}
+					borderRadius={"lg"}
+					resizeMethod="resize"
+					source={{ uri: product.images[thumbnail] }}
+					alt={product.title}
+				/>
+			</Pressable>
 
 			<HStack w={"full"} justifyContent={"space-between"}>
 				<Text w={"60%"} fontSize={"md"} color={"gray.700"}>

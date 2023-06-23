@@ -2,11 +2,11 @@
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function CartScreen() {
+export default function PaymentScreen() {
 	return (
 		<SafeAreaView>
 			<VStack>
-				<Heading>CartScreen</Heading>
+				<Heading>PaymentScreen</Heading>
 			</VStack>
 		</SafeAreaView>
 	);

@@ -13,27 +13,51 @@
 	HStack,
 } from "native-base";
 import { MaterialIcons, FontAwesome } from "@expo/vector-icons";
-import React from "react";
+import React, { useState } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Screens } from "../data";
 
 export default function LoginScreen(props: any) {
 	const [show, setShow] = React.useState(false);
+	const [loginActive, setLoginActive] = useState(true);
 
 	return (
-		<Stack mt={3} flex={1} space={10} p={2}>
-			<Flex alignItems={"flex-end"} p={5}>
-				<Pressable onPress={() => props.navigation.navigate("Home")}>
-					<Text color={"teal.500"} fontSize={18} fontWeight={"600"}>
-						Skip
-					</Text>
-				</Pressable>
-			</Flex>
+		<Stack flex={1} space={10} p={2}>
+			<SafeAreaView>
+				<Flex alignItems={"flex-end"} p={5} pt={2}>
+					<Pressable onPress={() => props.navigation.navigate(Screens.Home)}>
+						<Text color={"teal.500"} fontSize={18} fontWeight={"600"}>
+							Skip
+						</Text>
+					</Pressable>
+				</Flex>
+			</SafeAreaView>
+
 			<Box>
 				<Heading size={"3xl"} fontWeight={"900"}>
-					Sign in to CloudyNest
+					{loginActive ? "Sign in to CloudyNest" : "Registration"}
 				</Heading>
 			</Box>
 
 			<Stack space={4} w="100%" alignItems="center">
+				{!loginActive && (
+					<Input
+						w={"90%"}
+						size={"xl"}
+						focusOutlineColor={"teal.500"}
+						py={3}
+						colorScheme={"teal"}
+						InputLeftElement={
+							<Icon
+								as={<MaterialIcons name="person" />}
+								size={6}
+								ml="2"
+								color="muted.400"
+							/>
+						}
+						placeholder="Your Name"
+					/>
+				)}
 				<Input
 					w={"90%"}
 					size={"xl"}
@@ -42,7 +66,7 @@ export default function LoginScreen(props: any) {
 					colorScheme={"teal"}
 					InputLeftElement={
 						<Icon
-							as={<MaterialIcons name="person" />}
+							as={<MaterialIcons name="alternate-email" />}
 							size={6}
 							ml="2"
 							color="muted.400"
@@ -82,7 +106,7 @@ export default function LoginScreen(props: any) {
 				size="lg"
 				py={4}
 				variant="solid">
-				Login to Continue
+				{loginActive ? "Login to Continue" : "Register"}
 			</Button>
 
 			<Flex mx="auto" w="90%" direction="row" alignItems={"center"}>
@@ -93,11 +117,13 @@ export default function LoginScreen(props: any) {
 
 			<HStack mx="auto" space={2}>
 				<Text fontSize={18} fontWeight={"600"}>
-					Don't have an account ?{" "}
+					{loginActive
+						? "Don't have an account ? "
+						: "Already have an account ? "}
 				</Text>
-				<Pressable>
+				<Pressable onPress={() => setLoginActive(!loginActive)}>
 					<Text color={"teal.500"} fontSize={18} fontWeight={"600"}>
-						SignUp
+						{loginActive ? "SignUp" : "Login"}
 					</Text>
 				</Pressable>
 			</HStack>
