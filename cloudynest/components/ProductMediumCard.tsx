@@ -22,11 +22,14 @@ interface Props {
 
 export default function ProductMediumCard(product: Props) {
 	const navigation = useNavigation();
-	const [thumbnail, setThumbnai] = useState(0);
+	const [thumbnail, setThumbnail] = useState(0);
 
 	return (
 		<VStack w="full" p={2} space={2}>
-			<Pressable onPress={() => navigation.navigate(Screens.SingleProduct)}>
+			<Pressable
+				onPress={() =>
+					navigation.navigate(Screens.SingleProduct, { id: product.id })
+				}>
 				<Image
 					w={"full"}
 					h={300}
@@ -48,7 +51,7 @@ export default function ProductMediumCard(product: Props) {
 
 			<Stack direction={"row"} w={"full"} space={3}>
 				{product.images.map((item, index) => (
-					<Pressable key={item} onPress={() => setThumbnai(index)}>
+					<Pressable key={item} onPress={() => setThumbnail(index)}>
 						<AspectRatio w={60} ratio={4 / 5}>
 							<Image
 								resizeMode="cover"

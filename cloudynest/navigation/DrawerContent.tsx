@@ -68,24 +68,18 @@ export default function DrawerContent(props: DrawerContentComponentProps) {
 
 			{/*---:: Navlinks ::---*/}
 			<VStack p={3}>
-				<Button LeftIcon={{ Vector: FontAwesome, name: "users" }}>
-					Login As Supplier
-				</Button>
-
 				{/*---:: Section - 2 ::---*/}
-				<Heading mt={4} size={"md"}>
-					Profile
-				</Heading>
+				<Heading size={"md"}>Profile</Heading>
 				<Button LeftIcon={{ Vector: Ionicons, name: "ios-shirt" }}>
 					Your Orders
 				</Button>
 
-				<Divider thickness={"1.5"} bg={"teal.200"} />
+				<Divider />
 
 				<Button LeftIcon={{ Vector: MaterialIcons, name: "shopping-cart" }}>
 					Cart
 				</Button>
-				<Divider bg={"teal.200"} />
+				<Divider />
 				<Button LeftIcon={{ Vector: MaterialIcons, name: "favorite" }}>
 					WishList
 				</Button>
@@ -97,13 +91,23 @@ export default function DrawerContent(props: DrawerContentComponentProps) {
 				<Button LeftIcon={{ Vector: MaterialIcons, name: "card-giftcard" }}>
 					Coupons
 				</Button>
-				<Divider bg={"teal.200"} />
+				<Divider />
 				<Button LeftIcon={{ Vector: MaterialIcons, name: "local-offer" }}>
 					Offers
 				</Button>
-				<Divider bg={"teal.200"} />
+				<Divider />
 				<Button LeftIcon={{ Vector: MaterialIcons, name: "support" }}>
 					Support
+				</Button>
+				<Heading mt={4} size={"md"}>
+					Sell products
+				</Heading>
+				<Button
+					onPress={() =>
+						Linking.openURL("https://cloudynest.vercel.app/supplier/")
+					}
+					LeftIcon={{ Vector: FontAwesome, name: "users" }}>
+					Login As Supplier
 				</Button>
 			</VStack>
 

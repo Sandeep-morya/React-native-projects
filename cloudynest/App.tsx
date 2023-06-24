@@ -15,6 +15,9 @@ import AllProductsScreen from "./screens/AllProductsScreen";
 import SingleProductScreen from "./screens/SingleProductScreen";
 import PaymentScreen from "./screens/PaymentScreen";
 import { Screens } from "./data";
+import Header from "./components/Header";
+import CheckoutScreen from "./screens/CheckoutScreen";
+import HeaderSecondary from "./components/HeaderSecondary";
 
 const Drawer = createDrawerNavigator();
 
@@ -26,12 +29,19 @@ export default function App() {
 					initialRouteName="Home"
 					drawerContent={(props) => <DrawerContent {...props} />}
 					screenOptions={{
-						headerShown: false,
+						// headerShown: false,
+
 						drawerStyle: {
 							width: "100%",
 						},
 					}}>
-					<Drawer.Screen name={Screens.Home} component={HomeScreen} />
+					<Drawer.Screen
+						name={Screens.Home}
+						component={HomeScreen}
+						options={{
+							header: (props) => <Header {...props} />,
+						}}
+					/>
 					<Drawer.Screen
 						options={{
 							headerShown: false,
@@ -43,13 +53,38 @@ export default function App() {
 					<Drawer.Screen
 						name={Screens.AllProducts}
 						component={AllProductsScreen}
+						options={{
+							header: (props) => <Header {...props} />,
+						}}
 					/>
 					<Drawer.Screen
 						name={Screens.SingleProduct}
 						component={SingleProductScreen}
+						options={{
+							header: (props) => <Header {...props} />,
+						}}
 					/>
-					<Drawer.Screen name={Screens.Cart} component={CartScreen} />
-					<Drawer.Screen name={Screens.Payment} component={PaymentScreen} />
+					<Drawer.Screen
+						name={Screens.Cart}
+						component={CartScreen}
+						options={{
+							header: (props) => <HeaderSecondary {...props} />,
+						}}
+					/>
+					<Drawer.Screen
+						name={Screens.Checkout}
+						component={CheckoutScreen}
+						options={{
+							header: (props) => <HeaderSecondary {...props} />,
+						}}
+					/>
+					<Drawer.Screen
+						name={Screens.Payment}
+						component={PaymentScreen}
+						options={{
+							header: (props) => <HeaderSecondary {...props} />,
+						}}
+					/>
 				</Drawer.Navigator>
 				<StatusBar style="auto" backgroundColor={theme.colors.teal[500]} />
 			</NavigationContainer>

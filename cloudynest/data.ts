@@ -4,11 +4,75 @@
 	AllProducts = "AllProducts",
 	SingleProduct = "SingleProduct",
 	Cart = "Cart",
+	Checkout = "Checkout",
 	Payment = "Payment",
 }
 
-export type DrawerParamList = {
-	[key in Screens]: undefined;
+export const categoryData = [
+	{
+		image: require(`./assets/Categories/smartphones.png`),
+		title: "Mobile",
+		category: "smartphone",
+		color: "teal.100",
+	},
+	{
+		image: require(`./assets/Categories/laptops.png`),
+		title: "Laptops",
+		category: "electronic",
+		color: "red.100",
+	},
+	{
+		image: require(`./assets/Categories/mens.png`),
+		title: "Mens",
+		category: "men",
+		color: "blue.100",
+	},
+	{
+		image: require(`./assets/Categories/womens.png`),
+		title: "Womens",
+		category: "women",
+		color: "green.100",
+	},
+	{
+		image: require(`./assets/Categories/shoes.png`),
+		title: "Shoes",
+		category: "shoe",
+		color: "yellow.100",
+	},
+	{
+		image: require(`./assets/Categories/shorts.png`),
+		title: "Shorts",
+		category: "shorts",
+		color: "cyan.100",
+	},
+	{
+		image: require(`./assets/Categories/jackets.png`),
+		title: "Jackets",
+		category: "jacket",
+		color: "blue.100",
+	},
+	{
+		image: require(`./assets/Categories/t-shirts.png`),
+		title: "T-shirts",
+		category: "tshirt",
+		color: "green.100",
+	},
+];
+
+export const sellerProfile = {
+	_id: "640d6df76125ac27ae8cdd06",
+	image:
+		"http://res.cloudinary.com/due9pi68z/image/upload/v1679380793/ezbgodogpxxel4aokkfg.jpg",
+	name: "Sandeep Maurya",
+	email: "saabmaurya@gmail.com",
+	password: "$2b$05$s0dbyra2GARg1Z7o0XCUtegTnsrHQAt/jTgEYzPWrfl6gkll7hWJe",
+	mobile: "9988885304",
+	address: "#104, Jaspal colony, Kakowal , Ludhiana",
+	gst: "03AABCU9603R1ZX",
+	isPrime: false,
+	createdAt: "1678601719143",
+	updatedAt: "1679380794278",
+	__v: "0",
 };
 
 export const trending_products = [
@@ -100,3 +164,11 @@ export const trending_products = [
 		updatedAt: "2023-05-18T13:25:46.954Z",
 	},
 ];
+
+export const paymentImages = {
+	phone_pay:
+		"https://logos-download.com/wp-content/uploads/2021/01/PhonePe_Logo_full.png",
+	paytm:
+		"https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Paytm_logo.png/640px-Paytm_logo.png",
+	google_pay: "https://assets.stickpng.com/images/60e7f964711cf700048b6a6a.png",
+};

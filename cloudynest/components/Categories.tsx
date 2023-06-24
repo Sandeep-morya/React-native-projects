@@ -9,50 +9,10 @@
 } from "native-base";
 import React from "react";
 
-import { Screens } from "../data";
+import { Screens, categoryData } from "../data";
 import useNavigation from "../hooks/useNavigation";
-const images = [
-	{
-		image: require(`../assets/Categories/smartphones.png`),
-		title: "Smartphones",
-		color: "teal.100",
-	},
-	{
-		image: require(`../assets/Categories/laptops.png`),
-		title: "Laptops",
-		color: "red.100",
-	},
-	{
-		image: require(`../assets/Categories/mens.png`),
-		title: "Mens",
-		color: "blue.100",
-	},
-	{
-		image: require(`../assets/Categories/womens.png`),
-		title: "Womens",
-		color: "green.100",
-	},
-	{
-		image: require(`../assets/Categories/shoes.png`),
-		title: "Shoes",
-		color: "yellow.100",
-	},
-	{
-		image: require(`../assets/Categories/shorts.png`),
-		title: "Shorts",
-		color: "cyan.100",
-	},
-	// {
-	// 	image: require(`../assets/Categories/jackets.png`),
-	// 	title: "Jackets",
-	// 	color: "blue.100",
-	// },
-	// {
-	// 	image: require(`../assets/Categories/t-shirts.png`),
-	// 	title: "T-shirts",
-	// 	color: "green.100",
-	// },
-];
+
+const categories = categoryData.slice(0, 6);
 
 export default function Categories() {
 	const navigation = useNavigation();
@@ -63,7 +23,7 @@ export default function Categories() {
 			</Heading>
 
 			<Stack direction="row" flexWrap={"wrap"}>
-				{images.map(({ image, title, color }, index) => (
+				{categories.map(({ image, title, color, category }, index) => (
 					<Flex
 						style={{
 							width: "45%",
@@ -81,7 +41,10 @@ export default function Categories() {
 						bg={color}
 						m={2}
 						key={title + color}>
-						<Pressable onPress={() => navigation.navigate(Screens.AllProducts)}>
+						<Pressable
+							onPress={() =>
+								navigation.navigate(Screens.AllProducts, { category })
+							}>
 							<Image
 								style={{
 									height: "80%",
