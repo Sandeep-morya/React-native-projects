@@ -6,6 +6,7 @@ import { useQuery, gql } from "@apollo/client";
 import { FlatList } from "react-native";
 import { FlashList } from "@shopify/flash-list";
 import Card, { IProps } from "../components/Card";
+import { Redirect } from "expo-router";
 
 const GET_TODOS = gql`
 	query GetTodos {
@@ -21,6 +22,7 @@ const GET_TODOS = gql`
 `;
 
 export default function index() {
+	return <Redirect href={"/messages"} />;
 	const mode = useSlice("theme");
 	const { loading, error, data } = useQuery(GET_TODOS);
 

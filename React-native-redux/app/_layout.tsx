@@ -5,7 +5,7 @@ import HeaderRight from "../components/HeaderRight";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 const client = new ApolloClient({
-	uri: "http://192.168.1.4:8080/graphql",
+	uri: "http://192.168.1.4:4000/graphql",
 	cache: new InMemoryCache(),
 });
 
@@ -23,7 +23,7 @@ export default () => (
 				/>
 				<Stack.Screen
 					name="messages"
-					options={{ headerTitle: "GraphQL Socket.io" }}
+					options={{ headerTitle: "Subscriptions" }}
 				/>
 			</Stack>
 		</Provider>
